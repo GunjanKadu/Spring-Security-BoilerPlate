@@ -20,8 +20,8 @@
 <p>It makes easier to group permission and assign them to the user to be consistent </p>
 <p>Coarse Grained</p>
 
-
-<h2 align="center"><strong>How Spring Authentication Works?</h3>
+<hr/>
+<h2 align="center"><strong>How Spring Authentication Works?</strong></h2>
 <p>Spring Security is basically an filter which block each request coming into the application and then process on it</p>
 <p>Spring Security is applied on the entire application and not on a particular part/URL</p>
 
@@ -30,9 +30,35 @@
 <p>In Spring Security when the authentication is successfull the authentication return Information about the logged in user</p>
 <p>It Keeps Track of the both input(User credentials) and output(verified or not) using the object of Type AUTHENTICATION it is an internal spring security interface  </p>
 <p>The Authentication objects the credentials before authentication and then the PRINCIPAL(Verified User Information) after authentication</p>
-
+<hr/>
 
 ![Authentication1](Img/AuthenticationSpring1.png)
 
 <p>Authentication Provider Is Responsible for doing the actual Authentication it is an interface having the method authenticate.</p>
 <p>We need to have implementation of this interface in our application and inform Spring Security</p>
+<p>User Enters his username and password, Spring Security puts this into the AUTHENTICATION object it goes to the implementation of the Authentication Provider and calls the authenticate method. If the credentials are right it then return the information about the currently logged in user in the Same AUTHENTICATION object</p>
+<hr/>
+
+![Authentication2](Img/AuthenticationSpring2.png)
+
+<p>Each Application have more than 1 way to authenticate users. For ex UserName and Password based, OAuth based or LDAP based. </p>
+<p>Therefore there can multiple Authentication Provider in an application.</p>
+<p>To Coordinate Between all of these Authentication Provider there is a PROVIDERMANAGER</p>
+
+<hr/>
+
+![Authentication3](Img/AuthenticationSpring3.png)
+
+<p>The ProviderManager asks all the AuthenticationProvider for the authentication type they support. To Achieve this Each authentication providers has a additional method Called Support().</p>
+ <p>This is the method which is called by Provider Manager. Therefore each authentication provider has a Supports method.</p>
+
+<hr/>
+
+![Authentication4](Img/AuthenticationSpring4.png)
+<p>For the Authentication provider to do the job the Provider needs to have access to the db where the userdetails are stored and retrieve it and verify it </p>
+<p>To Retrieve the UserInformation is Abstracted By Spring Security Into A class called by UserDetailsService which has a method loadUserByUserName which gives the User as an object</p>
+
+<hr/>
+<h3 align="center">The Final Authentication Picture</h3>
+
+![AuthenticaionFinal](Img/AuthenticaionFinal.png)

@@ -1,5 +1,6 @@
+<h2 align ="center">Spring Security</h2>
 
-<h2 align ="center"> 5 Core Concepts of Spring Security</h2>
+<h3 align ="center"> 5 Core Concepts of Spring Security</h2>
 
 <h3 align="center"><strong><li>AUTHENTICATION</strong> - Who Are You ?</l1></h3>
 <p><strong>Knowledge Based Authentication</strong> - Authentication depending on username and password which is a type of knowledge you have </p>

@@ -1,13 +1,17 @@
 package com.gk.JDBCSpringSecurity.JDBCAuthentication.Config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // Defining an data source for telling how our database is structured.
@@ -22,16 +26,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .withDefaultSchema() // creating the default db schema
-                .withUser(
-                        User.withUsername("user")
-                        .password("pass")
-                        .roles("USER")
-                )
-                .withUser(
-                        User.withUsername("admin")
-                                .password("pass")
-                                .roles("ADMIN")
-                );
+                .withUser("user")
+                .password("pass")
+                .roles("USER")
+                .and()
+                .withUser("admin")
+                .password("pass")
+                .roles("ADMIN");
     }
 
     @Override
@@ -44,4 +45,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .and().formLogin();
     }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+
 }

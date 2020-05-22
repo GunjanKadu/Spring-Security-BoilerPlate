@@ -121,7 +121,7 @@ Create an User Repository Interface extending JPA Repository and adding an addit
 
 <li>
 Create a Custom UserDetailsService as defined in the security config implementing the UserDetailsService Interface.</li>
-<li>We also need to overide an method loadUserByUsername which return an UserDetails instance and pass the user returned from our UserRepository to the CustomUserDetailsClass</li>
+<li>We also need to Override an method loadUserByUsername which return an UserDetails instance and pass the user returned from our UserRepository to the CustomUserDetailsClass</li>
 
 
     @Service
@@ -141,9 +141,9 @@ Create a Custom UserDetailsService as defined in the security config implementin
         }
     }
 
-<li>The Custom UserDetails need to impement the UserDetails Class and override all the method in the class.</li>
+<li>The Custom UserDetails need to implement the UserDetails Class and override all the method in the class.</li>
  <li>This Class plays an major role as it returns the user with all the validation including the authorities need by Spring security to authenticate the user. </li>
-<li>In the UserDetails Class the Authority list is the collection of SimpleGrantedAuthorities therefore we need to convert   the roles we recieve from the user repository to the SimpleGrantedAuthorities.</li>
+<li>In the UserDetails Class the Authority list is the collection of SimpleGrantedAuthorities therefore we need to convert   the roles we Recieve from the user repository to the SimpleGrantedAuthorities.</li>
     
     public class MyUserDetails implements UserDetails {
     

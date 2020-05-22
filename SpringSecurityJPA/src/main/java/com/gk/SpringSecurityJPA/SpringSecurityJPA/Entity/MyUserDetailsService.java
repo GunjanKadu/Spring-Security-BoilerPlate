@@ -1,5 +1,6 @@
-package com.gk.SpringSecurityJPA.SpringSecurityJPA.Service;
+package com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity;
 
+import com.gk.SpringSecurityJPA.SpringSecurityJPA.Service.MyUserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

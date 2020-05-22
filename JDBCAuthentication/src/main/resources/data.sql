@@ -12,4 +12,4 @@ INSERT INTO authorities(username,authority)
 values('user','ROLE_USER');
 
 INSERT INTO authorities(username,authority)
-values('admin','ROLE_USER');
+values('admin','ROLE_ADMIN');

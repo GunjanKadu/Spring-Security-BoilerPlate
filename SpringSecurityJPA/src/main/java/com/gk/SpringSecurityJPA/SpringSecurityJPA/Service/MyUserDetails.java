@@ -22,7 +22,7 @@ public class MyUserDetails implements UserDetails {
         this.userName = user.getUserName();
         this.password = user.getPassword();
         this.active = user.isActive();
-        this.authorityList = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        this.authorityList = Arrays.stream(user.getRoles().split(",")).map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
     }
 
     public MyUserDetails() {

@@ -1,6 +1,5 @@
-package com.gk.SpringSecurityJPA.SpringSecurityJPA.Service;
+package com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity;
 
-import com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

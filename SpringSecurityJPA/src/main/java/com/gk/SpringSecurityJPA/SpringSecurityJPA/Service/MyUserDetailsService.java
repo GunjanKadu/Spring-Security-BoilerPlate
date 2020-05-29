@@ -1,7 +1,8 @@
-package com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity;
+package com.gk.SpringSecurityJPA.SpringSecurityJPA.Service;
 
 import com.gk.SpringSecurityJPA.SpringSecurityJPA.DAO.UserRepository;
-import com.gk.SpringSecurityJPA.SpringSecurityJPA.Service.MyUserDetails;
+import com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity.MyUserDetails;
+import com.gk.SpringSecurityJPA.SpringSecurityJPA.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
